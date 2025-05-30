@@ -146,7 +146,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Initialize all components
-    initPhoneInteraction();
     initTestimonialCarousel();
     initFAQAccordion();
     initStatsCounter();
