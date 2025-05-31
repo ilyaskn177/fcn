@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function () {
+    // ===== Mobile Menu Toggle =====
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const nav = document.querySelector('nav');
-    
+
     if (mobileMenuToggle && nav) {
         mobileMenuToggle.addEventListener('click', () => {
             const isActive = nav.classList.toggle('active');
@@ -11,27 +11,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Smooth Scrolling for Anchor Links
+    // ===== Smooth Scrolling for Anchor Links =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-            
+
             if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                
-                // Close mobile menu if open
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                // Close mobile nav if open
                 if (nav && nav.classList.contains('active')) {
                     nav.classList.remove('active');
                     mobileMenuToggle.classList.remove('active');
                     document.body.style.overflow = '';
                 }
-                
-                // Update URL
+
                 if (targetId !== '#') {
                     history.pushState(null, null, targetId);
                 }
@@ -39,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Navbar Scroll Effect
+    // ===== Navbar Scroll Effect =====
     const navbar = document.querySelector('.navbar');
     if (navbar) {
         window.addEventListener('scroll', () => {
@@ -47,105 +43,134 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // FAQ Accordion
+    // ===== FAQ Accordion =====
     const initFAQAccordion = () => {
         const faqItems = document.querySelectorAll('.faq-item');
-        
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
             if (question) {
                 question.addEventListener('click', () => {
-                    // Close all other items
-                    faqItems.forEach(otherItem => {
-                        if (otherItem !== item && otherItem.classList.contains('active')) {
-                            otherItem.classList.remove('active');
-                        }
+                    faqItems.forEach(other => {
+                        if (other !== item) other.classList.remove('active');
                     });
-                    
-                    // Toggle current item
                     item.classList.toggle('active');
                 });
             }
         });
     };
 
-    // Animated Stats Counter
+    // ===== Stats Counter =====
     const initStatsCounter = () => {
-        const statNumbers = document.querySelectorAll('.stat-number');
-        
-        if (statNumbers.length > 0) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateStats();
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            document.querySelector('.stats').forEach(statSection => {
-                observer.observe(statSection);
+        const statSection = document.querySelector('.stats');
+        if (!statSection) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
             });
-        }
-        
+        }, { threshold: 0.5 });
+
+        observer.observe(statSection);
+
         function animateStats() {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            
-            statNumbers.forEach(stat => {
+            document.querySelectorAll('.stat-number').forEach(stat => {
                 const target = parseInt(stat.dataset.count);
                 const suffix = stat.textContent.includes('%') ? '%' : '';
                 let count = 0;
                 const duration = 2000;
                 const increment = target / (duration / 16);
-                
+
                 const updateCount = () => {
                     count += increment;
-                    
                     if (count < target) {
-                        stat.textContent = suffix === '%' 
-                            ? Math.round(count) + suffix 
-                            : Math.round(count).toLocaleString();
+                        stat.textContent = suffix === '%' ?
+                            Math.round(count) + suffix :
+                            Math.round(count).toLocaleString();
                         requestAnimationFrame(updateCount);
                     } else {
-                        stat.textContent = suffix === '%' 
-                            ? target + suffix 
-                            : target.toLocaleString();
+                        stat.textContent = suffix === '%' ?
+                            target + suffix :
+                            target.toLocaleString();
                     }
                 };
-                
                 updateCount();
             });
         }
     };
 
-    // Particle Effect
+    // ===== Particle Effect =====
     const initParticles = () => {
-        const particlesContainer = document.getElementById('particles');
-        if (particlesContainer) {
-            const particleCount = window.innerWidth < 768 ? 15 : 30;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random properties
-                const size = Math.random() * 10 + 5;
-                particle.style.cssText = `
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${Math.random() * 100}%;
-                    top: ${Math.random() * 100}%;
-                    animation-duration: ${Math.random() * 20 + 10}s;
-                    animation-delay: ${Math.random() * 5}s;
-                    opacity: ${Math.random() * 0.3 + 0.1};
-                `;
-                
-                particlesContainer.appendChild(particle);
-            }
+        const container = document.getElementById('particles');
+        if (!container) return;
+
+        const count = window.innerWidth < 768 ? 15 : 30;
+        for (let i = 0; i < count; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            const size = Math.random() * 10 + 5;
+            particle.style.cssText = `
+                width: ${size}px;
+                height: ${size}px;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation-duration: ${Math.random() * 20 + 10}s;
+                animation-delay: ${Math.random() * 5}s;
+                opacity: ${Math.random() * 0.3 + 0.1};
+            `;
+            container.appendChild(particle);
         }
     };
 
-    // Initialize all components
+    // ===== Intersection Observer for Section Animations =====
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+    });
+
+    // ===== Interactive Phone Screens =====
+    const phoneButtons = document.querySelectorAll('.phone-btn');
+    const screens = document.querySelectorAll('.screen');
+    const phone = document.querySelector('.phone');
+
+    phoneButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const target = this.getAttribute('data-target');
+            phoneButtons.forEach(btn => btn.classList.remove('active'));
+            screens.forEach(screen => {
+                screen.classList.remove('active');
+                if (screen.getAttribute('data-screen') === target) {
+                    screen.classList.add('active');
+                }
+            });
+            this.classList.add('active');
+
+            // Phone bounce effect
+            phone.style.transform = 'rotateY(-5deg) rotateX(2deg) scale(1.02)';
+            setTimeout(() => {
+                phone.style.transform = 'rotateY(-5deg) rotateX(2deg)';
+            }, 200);
+        });
+    });
+
+    // Auto rotate phone screens
+    let currentScreen = 1;
+    const totalScreens = screens.length;
+    setInterval(() => {
+        currentScreen = currentScreen % totalScreens + 1;
+        document.querySelector(`.phone-btn[data-target="${currentScreen}"]`).click();
+    }, 4000);
+
+    // ===== Initialize Everything =====
     initFAQAccordion();
     initStatsCounter();
     initParticles();
