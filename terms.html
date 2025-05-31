@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | FCN - Fair Collection Network</title>
+    <!-- Favicon -->
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+    <style>
+        :root {
+            --primary: #00B34F;
+            --primary-dark: #00512E;
+            --primary-light: #39E27D;
+            --accent: #4CC9F0;
+            --text: #0F172A;
+            --text-light: #64748B;
+            --background: #FFFFFF;
+            --gray-light: #F8FAFC;
+            --gradient: linear-gradient(135deg, #00512E 0%, #39E27D 100%);
+            --glass: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--background);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--text);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--background);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .logo img {
+            height: 32px;
+        }
+
+        /* Hero Section */
+        .terms-hero {
+            background: var(--gradient);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terms-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: bottom;
+            opacity: 0.2;
+        }
+
+        .terms-hero h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            color: white;
+            position: relative;
+        }
+
+        .terms-hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+        }
+
+        /* Terms Content */
+        .terms-container {
+            padding: 80px 0;
+            display: flex;
+            gap: 60px;
+        }
+
+        .terms-sidebar {
+            flex: 0 0 280px;
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .terms-content {
+            flex: 1;
+        }
+
+        .terms-nav {
+            background: var(--gray-light);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .terms-nav h3 {
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .terms-nav ul {
+            list-style: none;
+        }
+
+        .terms-nav li {
+            margin-bottom: 12px;
+        }
+
+        .terms-nav a {
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .terms-nav a:hover,
+        .terms-nav a.active {
+            color: var(--primary-dark);
+            background: rgba(0, 179, 79, 0.1);
+        }
+
+        .terms-section {
+            margin-bottom: 60px;
+            scroll-margin-top: 120px;
+        }
+
+        .terms-section h2 {
+            font-size: 28px;
+            margin-bottom: 24px;
+            color: var(--primary-dark);
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .terms-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+        }
+
+        .terms-section h3 {
+            font-size: 20px;
+            margin: 30px 0 15px;
+            color: var(--text);
+        }
+
+        .terms-section p {
+            margin-bottom: 16px;
+            color: var(--text-light);
+        }
+
+        .terms-section ul,
+        .terms-section ol {
+            margin-bottom: 20px;
+            padding-left: 24px;
+            color: var(--text-light);
+        }
+
+        .terms-section li {
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+.footer {
+    background: var(--text);
+    color: white;
+    padding: 100px 0 40px;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(248, 250, 252, 0), var(--text));
+    transform: translateY(-100%);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.footer-brand .logo {
+    color: white;
+}
+
+.footer-brand p {
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 300px;
+}
+
+.social-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: white;
+    transform: translateY(-3px);
+}
+
+.footer-links h4,
+.footer-legal h4 {
+    color: white;
+    margin-bottom: 24px;
+    font-size: 18px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer-links h4::after,
+.footer-legal h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--gradient);
+    border-radius: 2px;
+}
+
+.footer-links ul,
+.footer-legal ul {
+    list-style: none;
+}
+
+.footer-links li,
+.footer-legal li {
+    margin-bottom: 16px;
+}
+
+.footer-links a,
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover,
+.footer-legal a:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--gradient);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 999;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes float-particle {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+
+    50% {
+        transform: translateY(-100px) translateX(50px);
+    }
+
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.15;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.2;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.15;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .terms-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .terms-sidebar {
+                position: static;
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .terms-hero h1 {
+                font-size: 32px;
+            }
+
+            .terms-hero p {
+                font-size: 16px;
+            }
+
+            .terms-section h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">
+                    <img src="images/icon.png" alt="FCN Logo">
+                    <span>FCN</span>
+                </a>
+                <a href="/" class="btn primary">Back to Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="terms-hero">
+        <div class="container">
+            <h1>Terms & Conditions</h1>
+            <p>Last updated: May 30, 2025</p>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <div class="container">
+        <div class="terms-container">
+            <!-- Sidebar Navigation -->
+            <aside class="terms-sidebar">
+                <nav class="terms-nav" id="termsNav">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                        Table of Contents
+                    </h3>
+                    <ul>
+                        <li><a href="#introduction" class="active">1. Introduction</a></li>
+                        <li><a href="#accounts">2. Accounts</a></li>
+                        <li><a href="#services">3. Services</a></li>
+                        <li><a href="#payments">4. Payments</a></li>
+                        <li><a href="#privacy">5. Privacy</a></li>
+                        <li><a href="#intellectual-property">6. Intellectual Property</a></li>
+                        <li><a href="#termination">7. Termination</a></li>
+                        <li><a href="#limitation-liability">8. Limitation of Liability</a></li>
+                        <li><a href="#governing-law">9. Governing Law</a></li>
+                        <li><a href="#changes">10. Changes to Terms</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="terms-content">
+                <section id="introduction" class="terms-section">
+                    <h2>1. Introduction</h2>
+                    <p>Welcome to FCN (Fair Collection Network), a digital fund collection platform ("Service") operated
+                        by FCN Technologies ("us", "we", or "our"). These Terms and Conditions ("Terms") govern your
+                        access to and use of our Service.</p>
+                    <p>By accessing or using the Service, you agree to be bound by these Terms. If you disagree with any
+                        part of the terms, you may not access the Service.</p>
+                </section>
+
+                <section id="accounts" class="terms-section">
+                    <h2>2. Accounts</h2>
+                    <h3>2.1 Account Creation</h3>
+                    <p>When you create an account with us, you must provide accurate and complete information. Failure
+                        to do so constitutes a breach of these Terms.</p>
+
+                    <h3>2.2 Account Security</h3>
+                    <p>You are responsible for maintaining the confidentiality of your account credentials and for all
+                        activities that occur under your account.</p>
+
+                    <h3>2.3 Account Termination</h3>
+                    <p>We reserve the right to refuse service, terminate accounts, or remove/edit content at our sole
+                        discretion.</p>
+                </section>
+
+                <section id="services" class="terms-section">
+                    <h2>3. Services</h2>
+                    <p>FCN provides a platform for digital fund collection with the following features:</p>
+                    <ul>
+                        <li>Real-time collection tracking</li>
+                        <li>Agent management tools</li>
+                        <li>Commission tracking</li>
+                        <li>Secure payment processing</li>
+                        <li>Reporting and analytics</li>
+                    </ul>
+                    <p>We reserve the right to modify or discontinue the Service (or any part of it) with or without
+                        notice.</p>
+                </section>
+
+                <section id="payments" class="terms-section">
+                    <h2>4. Payments</h2>
+                    <h3>4.1 Fees</h3>
+                    <p>Use of certain Service features may require payment of fees. All fees are stated in the
+                        applicable currency and are non-refundable.</p>
+
+                    <h3>4.2 Payment Processing</h3>
+                    <p>All payments are processed through secure third-party payment processors. We do not store your
+                        payment card details.</p>
+
+                    <h3>4.3 Taxes</h3>
+                    <p>You are responsible for all applicable taxes related to your use of the Service.</p>
+                </section>
+
+                <section id="privacy" class="terms-section">
+                    <h2>5. Privacy</h2>
+                    <p>Your use of the Service is subject to our Privacy Policy, which explains how we collect, use, and
+                        disclose your information.</p>
+                    <p>By using the Service, you consent to our collection and use of personal data as outlined in the
+                        Privacy Policy.</p>
+                </section>
+
+                <section id="intellectual-property" class="terms-section">
+                    <h2>6. Intellectual Property</h2>
+                    <p>The Service and its original content, features, and functionality are and will remain the
+                        exclusive property of FCN Technologies.</p>
+                    <p>Our trademarks and trade dress may not be used without prior written consent.</p>
+                </section>
+
+                <section id="termination" class="terms-section">
+                    <h2>7. Termination</h2>
+                    <p>We may terminate or suspend your account immediately, without prior notice or liability, for any
+                        reason, including if you breach these Terms.</p>
+                    <p>Upon termination, your right to use the Service will immediately cease.</p>
+                </section>
+
+                <section id="limitation-liability" class="terms-section">
+                    <h2>8. Limitation of Liability</h2>
+                    <p>In no event shall FCN Technologies be liable for any indirect, incidental, special, consequential
+                        or punitive damages resulting from your use of the Service.</p>
+                    <p>Our maximum liability to you for any claim related to the Service shall not exceed the amount you
+                        paid us in the last 12 months.</p>
+                </section>
+
+                <section id="governing-law" class="terms-section">
+                    <h2>9. Governing Law</h2>
+                    <p>These Terms shall be governed by and construed in accordance with the laws of Pakistan, without
+                        regard to its conflict of law provisions.</p>
+                </section>
+
+                <section id="changes" class="terms-section">
+                    <h2>10. Changes to Terms</h2>
+                    <p>We reserve the right to modify these Terms at any time. We will provide notice of any changes by
+                        posting the new Terms on this page.</p>
+                    <p>Your continued use of the Service after any changes constitutes acceptance of those changes.</p>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <img src="images/icon.png" alt="FCN Logo">
+                        <span>FCN</span>
+                    </a>
+                    <p style="color:#bbb; line-height:1.5; max-width:320px;">
+                        Fair Collection Network.<br>
+                        Revolutionizing digital collections with cutting-edge technology.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#3b5998"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M22.675 0h-21.35C.6 0 0 .6 0 1.326v21.348C0 23.4.6 24 1.326 24H12v-9.294H9.294v-3.53H12V8.59c0-2.688 1.644-4.155 4.046-4.155 1.152 0 2.142.085 2.43.124v2.82l-1.67.001c-1.31 0-1.565.623-1.565 1.538v2.014h3.13l-.408 3.53h-2.722V24h5.343C23.4 24 24 23.4 24 22.674V1.326C24 .6 23.4 0 22.675 0z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#1da1f2"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M23.954 4.57a10 10 0 01-2.825.775 4.932 4.932 0 002.163-2.724 9.9 9.9 0 01-3.127 1.196 4.916 4.916 0 00-8.373 4.482A13.942 13.942 0 011.671 3.15a4.903 4.903 0 001.523 6.548 4.903 4.903 0 01-2.224-.616c-.054 2.28 1.581 4.415 3.949 4.89a4.935 4.935 0 01-2.212.084 4.923 4.923 0 004.59 3.42A9.867 9.867 0 010 19.54a13.945 13.945 0 007.548 2.212c9.142 0 14.307-7.72 13.995-14.646a9.936 9.936 0 002.411-2.534z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0077b5"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M20.447 20.452H16.89v-5.569c0-1.327-.025-3.038-1.852-3.038-1.853 0-2.136 1.445-2.136 2.939v5.668H9.34V9h3.41v1.561h.048c.475-.9 1.637-1.852 3.368-1.852 3.6 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a1.984 1.984 0 11-.001-3.967 1.984 1.984 0 010 3.967zM6.765 20.452H3.908V9h2.857v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.225.792 24 1.771 24h20.451c.978 0 1.778-.775 1.778-1.729V1.729C24 .774 23.203 0 22.225 0z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+    
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#e4405f"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.97.24 2.43.41a4.92 4.92 0 011.675 1.09 4.92 4.92 0 011.09 1.676c.17.46.356 1.26.41 2.43.058 1.267.07 1.647.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.41 2.43a4.902 4.902 0 01-1.09 1.675 4.904 4.904 0 01-1.676 1.09c-.46.17-1.26.356-2.43.41-1.267.058-1.647.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.43-.41a4.92 4.92 0 01-1.675-1.09 4.91 4.91 0 01-1.09-1.675c-.17-.46-.356-1.26-.41-2.43-.058-1.267-.07-1.647-.07-4.85s.012-3.584.07-4.85c.054-1.17.24-1.97.41-2.43a4.922 4.922 0 011.09-1.676 4.919 4.919 0 011.675-1.09c.46-.17 1.26-.356 2.43-.41 1.267-.058 1.647-.07 4.85-.07zm0-2.163C8.735 0 8.332.012 7.052.07 5.77.128 4.658.34 3.683.667a7.057 7.057 0 00-2.57 1.6A7.057 7.057 0 00.666 4.837c-.327.974-.539 2.087-.597 3.37C.012 8.332 0 8.735 0 12c0 3.266.012 3.668.07 4.948.058 1.283.27 2.395.597 3.37a7.059 7.059 0 001.6 2.57 7.058 7.058 0 002.57 1.6c.974.327 2.086.539 3.37.597C8.332 23.988 8.735 24 12 24c3.266 0 3.668-.012 4.948-.07 1.283-.058 2.395-.27 3.37-.597a7.052 7.052 0 002.57-1.6 7.058 7.058 0 001.6-2.57c.327-.974.539-2.086.597-3.37.058-1.28.07-1.682.07-4.948 0-3.266-.012-3.668-.07-4.948-.058-1.283-.27-2.395-.597-3.37a7.057 7.057 0 00-1.6-2.57 7.059 7.059 0 00-2.57-1.6c-.974-.327-2.086-.539-3.37-.597C15.668.012 15.266 0 12 0z" />
+                                <path
+                                    d="M12 5.838a6.163 6.163 0 100 12.324 6.163 6.163 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998z" />
+                                <circle cx="18.406" cy="5.594" r="1.44" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#download">Download</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Updates</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-legal">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privicy.html">Privacy Policy</a></li>
+                        <li><a href="security.html">Security</a></li>
+                        <li><a href="#">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="footer-bottom">
+                <p>&copy; 2025 FCN - Fair Collection Network. All rights reserved. | Designed by <a
+                        href="https://ilyaskn177.github.io/ilyaskhan-portfolio/" target="_blank"
+                        rel="noopener noreferrer">Ilyas Khan</a></p>
+    
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Active navigation highlighting
+            const sections = document.querySelectorAll('.terms-section');
+            const navLinks = document.querySelectorAll('.terms-nav a');
+
+            function updateActiveNav() {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+
+                    if (window.scrollY >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveNav);
+            updateActiveNav(); // Initialize on load
+
+            // Smooth scrolling for navigation
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+
+                        // Update URL without jumping
+                        history.pushState(null, null, targetId);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
